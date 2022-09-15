@@ -43,9 +43,6 @@
   --fs-lg: 1.125rem;
   --fs-xl: 1.5rem;
 
-  /* opacity */
-  --opacity-idle: 0.35;
-
   /* border */
   --border-base: 2px solid;
 
@@ -168,4 +165,8 @@ a:not([class]) {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
