@@ -1,4 +1,4 @@
-import { Component, For } from 'solid-js';
+import { Component, For, Show } from 'solid-js';
 import store, { setStoreLength, setStoreRule } from '../../stores/password';
 import { rules } from '../../types';
 
@@ -33,6 +33,18 @@ const Form: Component = () => {
             </div>
           )}
         </For>
+      </div>
+      <div class={styles.strength}>
+        <span>Strength</span>
+        <Show when={store.password.strength}>
+          <span>{store.password.strength}</span>
+        </Show>
+        <div data-strength={store.password.strength} class={styles.strengthBars}>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </form>
   );

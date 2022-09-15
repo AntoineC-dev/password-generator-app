@@ -38,6 +38,39 @@
   text-transform: capitalize;
 }
 
+.strength {
+  display: flex;
+  align-items: center;
+  gap: var(--space-base);
+  padding: var(--space-base);
+  background-color: hsl(var(--clr-gray-900));
+}
+
+.strength > span {
+  text-transform: uppercase;
+}
+
+.strength > span:first-of-type {
+  color: hsl(var(--clr-gray-400));
+  margin-right: auto;
+}
+
+.strength > span:last-of-type {
+  font-size: var(--fs-lg);
+}
+
+.strengthBars {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.strengthBars > span {
+  display: block;
+  width: 10px;
+  height: 28px;
+  border: var(--border-base) hsl(var(--clr-light));
+}
+
 @media (--screen-tablet) {
   .form {
     padding-block: var(--space-lg) var(--space-xl);
