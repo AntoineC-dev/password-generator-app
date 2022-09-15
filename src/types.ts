@@ -1,10 +1,10 @@
+export const rules = ['uppercase', 'lowercase', 'numbers', 'symbols'] as const;
+export type RuleKey = typeof rules[number];
+
 export interface PasswordOptions {
   length: number;
   rules: {
-    uppercase?: boolean;
-    lowercase?: boolean;
-    numbers?: boolean;
-    symbols?: boolean;
+    [key in RuleKey]?: boolean;
   };
 }
 

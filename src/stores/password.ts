@@ -1,5 +1,5 @@
 import { createStore } from 'solid-js/store';
-import { PasswordStore } from '../types';
+import type { PasswordStore, RuleKey } from '../types';
 
 const [store, setStore] = createStore<PasswordStore>({
   password: { value: '', copied: false },
@@ -11,7 +11,6 @@ export default store;
 
 export const setStoreLength = (value: number) => setStore('length', value);
 
-type RuleKey = keyof typeof store.rules;
 export const setStoreRule = (key: RuleKey, value: boolean) => setStore('rules', key, value);
 
 // setStore((prev) => {
