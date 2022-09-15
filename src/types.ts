@@ -7,3 +7,10 @@ export interface PasswordOptions {
     symbols?: boolean;
   };
 }
+
+export interface PasswordStore extends PasswordOptions {
+  password: {
+    value: string;
+    copied: boolean;
+  };
+}
