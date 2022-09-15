@@ -1,0 +1,29 @@
+.form {
+  background-color: hsl(var(--clr-gray-700));
+  padding: var(--space-base);
+}
+
+.charlength {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  grid-auto-rows: min-content;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.charlength > span {
+  font-size: var(--fs-xl);
+  color: hsl(var(--clr-accent));
+  text-align: end;
+}
+
+@media (--screen-tablet) {
+  .form {
+    padding-block: var(--space-lg) var(--space-xl);
+    padding-inline: var(--space-xl);
+  }
+  .charlength {
+    gap: var(--space-base);
+  }
+}
