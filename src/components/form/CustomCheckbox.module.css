@@ -28,6 +28,7 @@
 }
 
 .checkbox:hover,
+.checkbox:focus,
 .checkbox:checked {
   border-color: hsl(var(--clr-accent));
 }
