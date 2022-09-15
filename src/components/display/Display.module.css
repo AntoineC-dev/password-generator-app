@@ -6,6 +6,7 @@
   gap: var(--space-base);
   background-color: hsl(var(--clr-gray-700));
   padding: var(--space-base);
+  margin-bottom: var(--space-base);
 }
 
 .password {
@@ -45,5 +46,6 @@
 @media (--screen-tablet) {
   .container {
     padding: var(--space-md) var(--space-xl);
+    margin-bottom: var(--space-lg);
   }
 }
