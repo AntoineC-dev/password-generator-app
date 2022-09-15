@@ -1,4 +1,4 @@
-import { Component } from 'solid-js';
+import { Component, createMemo } from 'solid-js';
 
 import styles from './Display.module.css';
 
@@ -7,12 +7,12 @@ interface DisplayProps {
 }
 
 const Display: Component<DisplayProps> = (props: DisplayProps) => {
-  const empty = true;
-  const copied = true;
+  const empty = createMemo(() => true);
+  const copied = createMemo(() => true);
   return (
     <div class={styles.container}>
-      <span classList={{ [styles.password]: true, [styles.empty]: empty }}>{props.password || 'P4$5W0rD!'}</span>
-      <button classList={{ [styles.copy]: true, [styles.copied]: copied }}>
+      <span classList={{ [styles.password]: true, [styles.empty]: empty() }}>{props.password || 'P4$5W0rD!'}</span>
+      <button classList={{ [styles.copy]: true, [styles.copied]: copied() }}>
         <span class="sr-only">Copy password to clipboard</span>
         <span class={`${styles.copytxt} uppercase`}>Copied</span>
         <svg class={styles.copysvg} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 24">
