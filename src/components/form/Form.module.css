@@ -46,4 +46,10 @@
   .charlength {
     gap: var(--space-base);
   }
+  .rules {
+    gap: var(--space-md);
+  }
+  .rule {
+    gap: var(--space-lg);
+  }
 }
