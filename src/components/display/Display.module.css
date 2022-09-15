@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-base);
+  background-color: hsl(var(--clr-gray-700));
+  padding: var(--space-base);
+}
+
+.password {
+  font-size: var(--fs-xl);
+}
+.password.empty {
+  opacity: 0.25;
+}
+
+.copy {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-base);
+  padding: var(--space-sm);
+  color: hsl(var(--clr-accent));
+}
+
+.copy:hover,
+.copy:focus {
+  color: hsl(var(--clr-light));
+}
+
+.copytxt,
+.copysvg {
+  transition: color 200ms linear;
+}
+
+.copy:not(.copied) .copytxt {
+  display: none;
+}
+
+.copysvg {
+  width: 21px;
+}
+
+@media (--screen-tablet) {
+  .container {
+    padding: var(--space-md) var(--space-xl);
+  }
+}
