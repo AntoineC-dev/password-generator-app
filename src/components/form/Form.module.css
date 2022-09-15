@@ -3,6 +3,11 @@
   padding: var(--space-base);
 }
 
+.charlength,
+.rules {
+  margin-bottom: var(--space-xl);
+}
+
 .charlength {
   display: grid;
   grid-template-columns: repeat(2, max-content);
@@ -16,6 +21,21 @@
   font-size: var(--fs-xl);
   color: hsl(var(--clr-accent));
   text-align: end;
+}
+
+.rules {
+  display: grid;
+  gap: var(--space-base);
+}
+
+.rule {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.rule > label {
+  text-transform: capitalize;
 }
 
 @media (--screen-tablet) {
