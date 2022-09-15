@@ -1,5 +1,5 @@
 /* ----------------- */
-/* Custom Properties */
+/* Custom Selectors  */
 /* ----------------- */
 
 @custom-media --screen-tablet (width >= 640px);
@@ -10,6 +10,10 @@
 @custom-selector :--media img, picture, video, canvas, svg;
 @custom-selector :--interactive input, button, textarea, select, a;
 @custom-selector :--list ul, ol;
+
+/* ----------------- */
+/* Custom Properties */
+/* ----------------- */
 
 :root {
   /* colors */
@@ -51,6 +55,7 @@
   --space-base: 1rem;
   --space-md: 1.5rem;
   --space-lg: 2rem;
+  --space-xl: 4rem;
 }
 
 @media (--screen-tablet) {
@@ -97,15 +102,6 @@ body,
 #root {
   flex-grow: 1;
   isolation: isolate;
-}
-
-#root {
-  font-family: var(--ff-mono);
-  line-height: var(--lh-base);
-  font-weight: var(--fw-bold);
-  font-size: var(--fs-base);
-  background-color: hsl(var(--clr-gray-900));
-  color: hsl(var(--clr-light));
 }
 
 :--media {
@@ -169,4 +165,20 @@ a:not([class]) {
 
 .uppercase {
   text-transform: uppercase;
+}
+
+/* ----------------- */
+/* General styles    */
+/* ----------------- */
+
+#root {
+  justify-content: center;
+  align-items: center;
+  font-family: var(--ff-mono);
+  line-height: var(--lh-base);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-base);
+  background-color: hsl(var(--clr-gray-900));
+  color: hsl(var(--clr-light));
+  padding: var(--space-xl) var(--space-base);
 }
