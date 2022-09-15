@@ -8,7 +8,7 @@ export interface PasswordOptions {
   };
 }
 
-export const passwordStrenghts = ['too_weak', 'weak', 'medium', 'strong'] as const;
+export const passwordStrenghts = ['too weak!', 'weak', 'medium', 'strong'] as const;
 export type passwordStrenght = typeof passwordStrenghts[number];
 
 export interface PasswordStore extends PasswordOptions {
