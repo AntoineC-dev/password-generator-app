@@ -10,7 +10,7 @@ import type { PasswordStore, RuleKey } from '../types';
  */
 
 const [store, setStore] = createStore<PasswordStore>({
-  password: { value: '', copied: false },
+  password: { value: '', copied: false, strength: 0 },
   length: 0,
   rules: {},
 });
@@ -19,10 +19,11 @@ export default store;
 
 const checkPasswordStrength = (length: number, rules: PasswordStore['rules']) => {
   const nbOfRules = Object.values(rules).filter((rule) => rule).length;
-  if (length < 6 || nbOfRules < 2) return 'too weak!';
-  if (length < 8 || nbOfRules < 3) return 'weak';
-  if (length < 12 || nbOfRules < 4) return 'medium';
-  return 'strong';
+  if (!length || !nbOfRules) return 0;
+  if (length < 6 || nbOfRules < 2) return 1;
+  if (length < 8 || nbOfRules < 3) return 2;
+  if (length < 12 || nbOfRules < 4) return 3;
+  return 4;
 };
 
 export const setStoreLength = (value: number) =>

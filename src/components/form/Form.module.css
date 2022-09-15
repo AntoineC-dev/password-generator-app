@@ -55,21 +55,10 @@
   margin-right: auto;
 }
 
-.strength > span:last-of-type {
+.strengthLabel {
   font-size: var(--fs-lg);
+  line-height: 1;
 }
-
-/* .strengthBars {
-  display: flex;
-  gap: var(--space-sm);
-}
-
-.strengthBars > span {
-  display: block;
-  width: 10px;
-  height: 28px;
-  border: var(--border-base) hsl(var(--clr-light));
-} */
 
 @media (--screen-tablet) {
   .form {

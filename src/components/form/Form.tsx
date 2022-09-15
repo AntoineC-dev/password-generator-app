@@ -7,6 +7,7 @@ import CustomSlider from './CustomSlider';
 import StrengthMeter from './StrengthMeter';
 
 import styles from './Form.module.css';
+import { displayPasswordStrength } from '../../utils/password';
 
 const Form: Component = () => {
   return (
@@ -37,8 +38,8 @@ const Form: Component = () => {
       </div>
       <div class={styles.strength}>
         <span>Strength</span>
-        <Show when={store.password.strength}>
-          <span>{store.password.strength}</span>
+        <Show when={store.password.strength !== 0}>
+          <span class={styles.strengthLabel}>{displayPasswordStrength(store.password.strength)}</span>
         </Show>
         <StrengthMeter />
       </div>

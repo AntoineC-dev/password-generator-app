@@ -1,4 +1,4 @@
-import type { PasswordOptions } from '../types';
+import type { PasswordOptions, passwordStrenght } from '../types';
 
 /**
  *
@@ -88,4 +88,17 @@ export const generatePassword = (options: PasswordOptions) => {
   // Generate password
   const password = generateStrictPassword(options, pool);
   return password;
+};
+
+export const displayPasswordStrength = (current: passwordStrenght) => {
+  switch (current) {
+    case 1:
+      return 'too weak!';
+    case 2:
+      return 'weak';
+    case 3:
+      return 'medium';
+    default:
+      return 'strong';
+  }
 };
