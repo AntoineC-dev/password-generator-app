@@ -7,6 +7,6 @@
 
 @media (--screen-tablet) {
   .container {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-xl);
   }
 }
