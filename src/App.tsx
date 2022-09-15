@@ -1,12 +1,13 @@
-import type { Component } from 'solid-js';
+import { Component } from 'solid-js';
+import { Header } from './components';
 
 import styles from './App.module.css';
 
 const App: Component = () => {
   return (
-    <>
-      <h1 class={styles.title}>Hello World</h1>
-    </>
+    <div class={styles.container}>
+      <Header title="Password Generator" />
+    </div>
   );
 };
 

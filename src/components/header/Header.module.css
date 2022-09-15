@@ -1,0 +1,12 @@
+.container {
+  font-size: var(--fs-md);
+  color: hsl(var(--clr-gray-400));
+  margin-bottom: var(--space-base);
+  text-align: center;
+}
+
+@media (--screen-tablet) {
+  .container {
+    margin-bottom: var(--space-lg);
+  }
+}
