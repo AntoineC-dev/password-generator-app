@@ -1,0 +1,37 @@
+.checkbox {
+  --checkbox-width: 20px;
+  position: relative;
+  cursor: pointer;
+  appearance: none;
+  width: var(--checkbox-width);
+  height: var(--checkbox-width);
+  background-color: hsl(var(--clr-gray-900));
+  border: var(--border-base) hsl(var(--clr-light));
+  margin: 0;
+  transition: border-color 200ms linear, background-color 200ms linear;
+}
+
+.checkbox::before {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 12px;
+  background-image: url('../../assets/icon-check.svg');
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 200ms ease-in-out;
+}
+
+.checkbox:checked::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.checkbox:hover,
+.checkbox:checked {
+  border-color: hsl(var(--clr-accent));
+}
+
+.checkbox:checked {
+  background-color: hsl(var(--clr-accent));
+}
