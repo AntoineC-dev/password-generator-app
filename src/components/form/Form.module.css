@@ -59,7 +59,7 @@
   font-size: var(--fs-lg);
 }
 
-.strengthBars {
+/* .strengthBars {
   display: flex;
   gap: var(--space-sm);
 }
@@ -69,7 +69,7 @@
   width: 10px;
   height: 28px;
   border: var(--border-base) hsl(var(--clr-light));
-}
+} */
 
 @media (--screen-tablet) {
   .form {

@@ -4,6 +4,7 @@ import { rules } from '../../types';
 
 import CustomCheckbox from './CustomCheckbox';
 import CustomSlider from './CustomSlider';
+import StrengthMeter from './StrengthMeter';
 
 import styles from './Form.module.css';
 
@@ -39,12 +40,7 @@ const Form: Component = () => {
         <Show when={store.password.strength}>
           <span>{store.password.strength}</span>
         </Show>
-        <div data-strength={store.password.strength} class={styles.strengthBars}>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+        <StrengthMeter />
       </div>
     </form>
   );

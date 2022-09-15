@@ -1,0 +1,17 @@
+.bars {
+  display: flex;
+  gap: var(--space-sm);
+  counter-reset: bars;
+}
+
+.bars > span {
+  display: block;
+  width: 10px;
+  height: 28px;
+  border: var(--border-base) hsl(var(--clr-light));
+}
+
+.bars > span.active {
+  background-color: hsl(var(--current-color));
+  border-color: hsl(var(--current-color));
+}
