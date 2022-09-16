@@ -30,7 +30,7 @@ Users should be able to:
 Bonus:
 
 - Generate strict password (at least one character of each selected type)
-- Toast notifications succes/error (copied to clipboard)
+- Toast notifications success/error (copied to clipboard)
 
 ### Screenshot
 
@@ -38,13 +38,13 @@ Bonus:
 
 ![Fullpage Tablet](./fullpage-tablet.png)
 
-- Mobile (375x934)
+- Mobile (375x760)
 
 ![Fullpage Mobile](./fullpage-mobile.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/password-generator-app-solidjs-typescript-postcss-2eOe7gBlbM](https://www.frontendmentor.io/solutions/password-generator-app-solidjs-typescript-postcss-2eOe7gBlbM)
 - Live Site URL: [https://password-generator-app-acdev.vercel.app/](https://password-generator-app-acdev.vercel.app/)
 
 ## My process
@@ -66,9 +66,17 @@ Bonus:
 
 As a second project with this stack I start to really feel good with the framework. It has a really nice DX and clear documentation.
 
+#### Accessibility - Making Disabled Buttons More Inclusive
+
+I tried to not use the disabled HTML attribute but work with the aria-disabled instead. It means that I am required to check for the validity of the inputs in the JavaScript because the buttons are actually clickable even with the "disable" style.
+
+I added a tooltip to explain why the button is "disabled" for a better UX.
+
+For users using keyboard navigation & screen readers it is a big + ! Because the button is still focusable and they know why the action fails.
+
 #### Customize range input
 
-It was really hard to create teh custom range input from the design and make it compatible in both Chromium and Firefox.
+It was really hard to create the custom range input from the design and make it compatible in both Chromium and Firefox.
 
 I tried going with a CSS-only approch but only firefox gives you the possibility to style the **progress track** with `::-moz-range-progress` so i used a dynamic linear gradient with a bit of JavaScript.
 
