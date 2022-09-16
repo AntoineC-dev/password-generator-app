@@ -7,8 +7,10 @@ const App: Component = () => {
   return (
     <div class={styles.container}>
       <Header title="Password Generator" />
-      <Display password="" />
-      <Form />
+      <main>
+        <Display />
+        <Form />
+      </main>
     </div>
   );
 };
