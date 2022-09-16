@@ -11,9 +11,9 @@ const Display: Component = () => {
         {store.password.value || 'P4$5W0rD!'}
       </span>
       <button
-        disabled={empty()}
+        aria-disabled={empty()}
         onClick={copyPasswordToClipboard}
-        classList={{ [styles.copy]: true, [styles.copied]: store.password.copied }}>
+        classList={{ tooltip: true, [styles.copy]: true, [styles.copied]: store.password.copied }}>
         <span class="sr-only">Copy password to clipboard</span>
         <span class={`${styles.copytxt} uppercase`}>Copied</span>
         <svg class={styles.copysvg} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 24">

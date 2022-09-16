@@ -15,33 +15,16 @@
   transition: background-color 200ms linear, border-color 200ms linear;
 }
 
-.generate::after {
+.generate::before {
   content: attr(data-tooltip);
-  position: absolute;
-  display: block;
-  text-transform: none;
   bottom: calc(100% + 1.5rem);
   left: 50%;
-  width: min(100%, 40ch);
-  padding: var(--space-sm) var(--space-lg);
-  color: hsl(var(--clr-light));
-  font-size: 1rem;
-  background-color: hsl(var(--clr-gray-700));
-  border: 4px dotted hsl(var(--clr-light));
-  opacity: 0;
-  pointer-events: none;
   transform: translateX(-50%);
-  transition: opacity 200ms ease-in-out;
 }
 
 .generate[aria-disabled='true'] {
   cursor: not-allowed;
   background-color: hsl(var(--clr-accent) / 0.25);
-}
-
-.generate[aria-disabled='true']:hover::after,
-.generate[aria-disabled='true']:focus-visible::after {
-  opacity: 1;
 }
 
 .generate[aria-disabled='false']:hover,

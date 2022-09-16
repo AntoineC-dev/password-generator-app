@@ -24,11 +24,18 @@
   color: hsl(var(--clr-accent));
 }
 
-.copy:disabled {
-  cursor: not-allowed;
+.copy::before {
+  content: 'Password is empty';
+  top: calc(100% + 0.5rem);
+  right: 0;
 }
 
-.copy:enabled:hover,
+.copy[aria-disabled='true'] {
+  cursor: not-allowed;
+  color: hsl(var(--clr-accent) / 0.25);
+}
+
+.copy[aria-disabled='false']:hover,
 .copy:focus-visible {
   color: hsl(var(--clr-light));
 }

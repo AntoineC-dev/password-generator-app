@@ -168,6 +168,29 @@ a:not([class]) {
   text-transform: uppercase;
 }
 
+.tooltip {
+  position: relative;
+}
+.tooltip::before {
+  pointer-events: none;
+  position: absolute;
+  display: block;
+  min-width: 25ch;
+  width: min(100%, 40ch);
+  padding: var(--space-sm) var(--space-lg);
+  background-color: hsl(var(--clr-gray-700));
+  border: 4px dotted hsl(var(--clr-light));
+  font-size: 1rem;
+  color: hsl(var(--clr-light));
+  text-transform: none;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+.tooltip[aria-disabled='true']:hover::before,
+.tooltip[aria-disabled='true']:focus-visible::before {
+  opacity: 1;
+}
+
 /* ----------------- */
 /* General styles    */
 /* ----------------- */
