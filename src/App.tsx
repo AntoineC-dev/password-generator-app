@@ -1,5 +1,5 @@
 import { Component } from 'solid-js';
-import { Display, Form, Header } from './components';
+import { Display, Form, Header, Toast } from './components';
 
 import styles from './App.module.css';
 
@@ -11,6 +11,7 @@ const App: Component = () => {
         <Display />
         <Form />
       </main>
+      <Toast />
     </div>
   );
 };
