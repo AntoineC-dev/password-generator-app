@@ -81,12 +81,12 @@
 }
 
 .generate[aria-disabled='true']:hover::after,
-.generate[aria-disabled='true']:focus::after {
-  opacity: 1 !important;
+.generate[aria-disabled='true']:focus-visible::after {
+  opacity: 1;
 }
 
 .generate[aria-disabled='false']:hover,
-.generate[aria-disabled='false']:focus {
+.generate[aria-disabled='false']:focus-visible {
   border-color: hsl(var(--clr-accent));
   background-color: hsl(var(--clr-gray-700));
   color: hsl(var(--clr-accent));
