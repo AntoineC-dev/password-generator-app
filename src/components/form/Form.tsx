@@ -7,7 +7,6 @@ import CustomSlider from './CustomSlider';
 import StrengthMeter from './StrengthMeter';
 
 import styles from './Form.module.css';
-import { displayPasswordStrength } from '../../utils/password';
 
 const Form: Component = () => {
   return (
