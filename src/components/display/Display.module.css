@@ -8,15 +8,12 @@
   padding: var(--space-base);
 }
 
-.container > span {
-  user-select: none;
-}
-
 .password {
   font-size: var(--fs-xl);
 }
 .password.empty {
   opacity: 0.25;
+  user-select: none;
 }
 
 .copy {
