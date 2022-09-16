@@ -36,13 +36,7 @@ const Form: Component = () => {
           )}
         </For>
       </div>
-      <div class={styles.strength}>
-        <span>Strength</span>
-        <Show when={store.password.strength !== 0}>
-          <span class={styles.strengthLabel}>{displayPasswordStrength(store.password.strength)}</span>
-        </Show>
-        <StrengthMeter />
-      </div>
+      <StrengthMeter />
     </form>
   );
 };

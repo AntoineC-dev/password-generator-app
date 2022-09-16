@@ -38,28 +38,6 @@
   text-transform: capitalize;
 }
 
-.strength {
-  display: flex;
-  align-items: center;
-  gap: var(--space-base);
-  padding: var(--space-base);
-  background-color: hsl(var(--clr-gray-900));
-}
-
-.strength > span {
-  text-transform: uppercase;
-}
-
-.strength > span:first-of-type {
-  color: hsl(var(--clr-gray-400));
-  margin-right: auto;
-}
-
-.strengthLabel {
-  font-size: var(--fs-lg);
-  line-height: 1;
-}
-
 @media (--screen-tablet) {
   .form {
     padding-block: var(--space-lg) var(--space-xl);
