@@ -1,6 +1,9 @@
 import { createStore, produce } from 'solid-js/store';
 import type { PasswordStore, RuleKey } from '../types';
+import { copyToClipboard } from '../utils/clipboard';
 import { checkOptionsValidity, generatePassword } from '../utils/password';
+import toast from 'solid-toast';
+import { formatErrorMessage } from '../utils/errors';
 
 const [store, setStore] = createStore<PasswordStore>({
   password: { value: '', copied: false, strength: 0 },
@@ -40,5 +43,17 @@ export const setStorePassword = () =>
       if (errorMsg) return;
       const password = generatePassword({ length: store.length, rules: store.rules });
       store.password.value = password;
+      store.password.copied = false;
     })
   );
+
+export const copyPasswordToClipboard = async () => {
+  if (!store.password.value) return;
+  try {
+    await copyToClipboard(store.password.value);
+    if (!store.password.copied) setStore('password', 'copied', true);
+    toast.success('Copied to clipboard');
+  } catch (error) {
+    toast.error(formatErrorMessage(error));
+  }
+};
