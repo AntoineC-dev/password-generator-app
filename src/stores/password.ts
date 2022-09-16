@@ -1,13 +1,16 @@
 import { createStore, produce } from 'solid-js/store';
 import type { PasswordStore, RuleKey } from '../types';
 import { generatePassword } from '../utils/password';
+import notify from 'solid-toast';
+import { formatErrorMessage } from '../utils/errors';
 
 /**
  * PASSWORD STRENGHT
  *
- * Weak => length >= 6 && rules.length >= 2
- * Medium => 8 <= length < 12 && 3 <= rules.length <= 4
- * STRONG => lenght >=12 && rules.length === 4
+ * Too Weak! => length < 6 || rules count < 2
+ * Weak => length < 8 || rules count < 3
+ * Medium => length < 12 || rules count < 4
+ * STRONG => lenght > 12 && rules count === 4
  */
 
 const [store, setStore] = createStore<PasswordStore>({
@@ -54,7 +57,7 @@ export const setStorePassword = () =>
         const password = generatePassword({ length: store.length, rules: store.rules });
         store.password.value = password;
       } catch (error) {
-        console.error(error);
+        notify.error(formatErrorMessage(error));
       }
     })
   );
