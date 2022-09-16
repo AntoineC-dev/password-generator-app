@@ -1,4 +1,4 @@
-import { Component, ComponentProps, createMemo, For, Show } from 'solid-js';
+import { Component, ComponentProps, For, Show } from 'solid-js';
 import { passwordStrenghts } from '../../types';
 import { displayPasswordStrength } from '../../utils/password';
 import store from '../../stores/password';

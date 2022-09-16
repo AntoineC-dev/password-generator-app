@@ -37,3 +37,9 @@
   background-color: hsl(var(--current-color));
   border-color: hsl(var(--current-color));
 }
+
+@media (--screen-tablet) {
+  .container {
+    padding: var(--space-md) var(--space-xl);
+  }
+}

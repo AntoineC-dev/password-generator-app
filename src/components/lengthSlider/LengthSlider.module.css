@@ -1,0 +1,20 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  grid-auto-rows: min-content;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.container > span {
+  font-size: var(--fs-xl);
+  color: hsl(var(--clr-accent));
+  text-align: end;
+}
+
+@media (--screen-tablet) {
+  .container {
+    gap: var(--space-base);
+  }
+}

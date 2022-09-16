@@ -1,4 +1,4 @@
-import { Component, ComponentProps, createEffect, createMemo } from 'solid-js';
+import { Component, ComponentProps, createMemo } from 'solid-js';
 
 import styles from './CustomSlider.module.css';
 
