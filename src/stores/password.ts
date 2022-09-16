@@ -1,5 +1,6 @@
 import { createStore, produce } from 'solid-js/store';
 import type { PasswordStore, RuleKey } from '../types';
+import { generatePassword } from '../utils/password';
 
 /**
  * PASSWORD STRENGHT
@@ -43,5 +44,17 @@ export const setStoreRule = (key: RuleKey, value: boolean) =>
       const strength = checkPasswordStrength(store.length, newRules);
       store.rules[key] = value;
       store.password.strength = strength;
+    })
+  );
+
+export const setStorePassword = () =>
+  setStore(
+    produce((store) => {
+      try {
+        const password = generatePassword({ length: store.length, rules: store.rules });
+        store.password.value = password;
+      } catch (error) {
+        console.error(error);
+      }
     })
   );
