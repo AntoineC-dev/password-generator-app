@@ -1,4 +1,4 @@
-import { Component, createEffect, createMemo, For } from 'solid-js';
+import { Component, For } from 'solid-js';
 import store, { setStoreLength, setStorePassword, setStoreRule } from '../../stores/password';
 import { rules } from '../../types';
 
@@ -9,7 +9,6 @@ import StrengthMeter from './StrengthMeter';
 import styles from './Form.module.css';
 
 const Form: Component = () => {
-  createEffect(() => console.log(store.errorMsg));
   const onSubmit = (e: Event) => {
     e.preventDefault();
     setStorePassword();
