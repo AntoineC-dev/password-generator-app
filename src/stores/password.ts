@@ -1,12 +1,12 @@
 import { createStore, produce } from 'solid-js/store';
 import type { PasswordStore, RuleKey } from '../types';
 import { checkOptionsValidity, generatePassword } from '../utils/password';
-import notify from 'solid-toast';
 
 const [store, setStore] = createStore<PasswordStore>({
   password: { value: '', copied: false, strength: 0 },
   length: 0,
   rules: {},
+  errorMsg: "Password length can't be zero",
 });
 
 export default store;
@@ -37,11 +37,8 @@ export const setStorePassword = () =>
   setStore(
     produce((store) => {
       const { errorMsg } = checkOptionsValidity({ length: store.length, rules: store.rules });
-      if (errorMsg) {
-        notify.error(errorMsg);
-      } else {
-        const password = generatePassword({ length: store.length, rules: store.rules });
-        store.password.value = password;
-      }
+      if (errorMsg) return;
+      const password = generatePassword({ length: store.length, rules: store.rules });
+      store.password.value = password;
     })
   );
