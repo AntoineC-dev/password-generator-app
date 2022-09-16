@@ -36,7 +36,7 @@
 }
 
 .copy[aria-disabled='false']:hover,
-.copy:focus-visible {
+.copy[aria-disabled='false']:focus-visible {
   color: hsl(var(--clr-light));
 }
 
