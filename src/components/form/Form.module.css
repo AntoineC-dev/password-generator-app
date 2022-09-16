@@ -39,6 +39,7 @@
 }
 
 .generate {
+  position: relative;
   cursor: pointer;
   display: grid;
   grid-auto-flow: column;
@@ -55,18 +56,44 @@
   transition: background-color 200ms linear, border-color 200ms linear;
 }
 
-.generate > * {
-  transition: color 200ms linear;
+.generate::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  display: block;
+  text-transform: none;
+  bottom: calc(100% + 1.5rem);
+  left: 50%;
+  width: min(100%, 40ch);
+  padding: var(--space-sm) var(--space-lg);
+  color: hsl(var(--clr-light));
+  font-size: 1rem;
+  background-color: hsl(var(--clr-gray-700));
+  border: 4px dotted hsl(var(--clr-light));
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%);
+  transition: opacity 200ms ease-in-out;
 }
 
 .generate[aria-disabled='true'] {
   cursor: not-allowed;
+  background-color: hsl(var(--clr-accent) / 0.5);
 }
 
-.generate[aria-disabled='false']:hover {
+.generate[aria-disabled='true']:hover::after,
+.generate[aria-disabled='true']:focus::after {
+  opacity: 1 !important;
+}
+
+.generate[aria-disabled='false']:hover,
+.generate[aria-disabled='false']:focus {
   border-color: hsl(var(--clr-accent));
   background-color: hsl(var(--clr-gray-700));
   color: hsl(var(--clr-accent));
+}
+
+.generate > * {
+  transition: color 200ms linear;
 }
 
 .generate > svg {
