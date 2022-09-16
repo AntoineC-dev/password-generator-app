@@ -4,7 +4,7 @@ import { Toaster } from 'solid-toast';
 const Toast: Component = () => {
   return (
     <Toaster
-      position="bottom-center"
+      position="top-center"
       toastOptions={{
         className: 'custom-toast',
         duration: 5000,
