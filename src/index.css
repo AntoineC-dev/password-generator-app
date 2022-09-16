@@ -49,6 +49,7 @@
 
   /* border */
   --border-base: 2px solid;
+  --outline-focus: 4px dotted hsl(var(--clr-light));
 
   /* spacing */
   --space-sm: 0.5rem;
@@ -179,7 +180,7 @@ a:not([class]) {
   width: min(100%, 40ch);
   padding: var(--space-sm) var(--space-lg);
   background-color: hsl(var(--clr-gray-700));
-  border: 4px dotted hsl(var(--clr-light));
+  border: var(--outline-focus);
   font-size: 1rem;
   color: hsl(var(--clr-light));
   text-transform: none;
@@ -208,5 +209,5 @@ a:not([class]) {
 }
 
 *:focus-visible {
-  outline: 4px dotted hsl(var(--clr-light));
+  outline: var(--outline-focus);
 }
