@@ -30,7 +30,7 @@
 }
 
 .copy:enabled:hover,
-.copy:focus {
+.copy:focus-visible {
   color: hsl(var(--clr-light));
 }
 

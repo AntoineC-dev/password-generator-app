@@ -1,5 +1,5 @@
 import { Component, createMemo } from 'solid-js';
-import store from '../../stores/password';
+import store, { copyPasswordToClipboard } from '../../stores/password';
 
 import styles from './Display.module.css';
 
@@ -10,7 +10,10 @@ const Display: Component = () => {
       <span classList={{ [styles.password]: true, [styles.empty]: empty() }}>
         {store.password.value || 'P4$5W0rD!'}
       </span>
-      <button disabled={empty()} classList={{ [styles.copy]: true, [styles.copied]: store.password.copied }}>
+      <button
+        disabled={empty()}
+        onClick={copyPasswordToClipboard}
+        classList={{ [styles.copy]: true, [styles.copied]: store.password.copied }}>
         <span class="sr-only">Copy password to clipboard</span>
         <span class={`${styles.copytxt} uppercase`}>Copied</span>
         <svg class={styles.copysvg} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 24">
