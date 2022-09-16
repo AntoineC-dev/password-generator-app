@@ -6,8 +6,17 @@ const Toast: Component = () => {
     <Toaster
       position="bottom-center"
       toastOptions={{
-        duration: 4500,
+        className: 'custom-toast',
+        duration: 5000,
         ariaProps: { role: 'alert', 'aria-live': 'polite' },
+        style: {
+          'background-color': 'hsl(var(--clr-gray-700))',
+          'font-size': '1rem',
+          'max-width': '420px',
+          color: 'hsl(var(--clr-light))',
+          padding: '0.5rem 1rem',
+          border: '4px dotted hsl(var(--clr-light))',
+        },
       }}
     />
   );
