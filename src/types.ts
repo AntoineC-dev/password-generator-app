@@ -9,12 +9,13 @@ export interface PasswordOptions {
 }
 
 export const passwordStrenghts = [0, 1, 2, 3, 4] as const;
-export type passwordStrenght = typeof passwordStrenghts[number];
+export type PasswordStrenght = typeof passwordStrenghts[number];
 
 export interface PasswordStore extends PasswordOptions {
   password: {
     value: string;
     copied: boolean;
-    strength: passwordStrenght;
+    strength: PasswordStrenght;
   };
+  errorMsg?: string;
 }

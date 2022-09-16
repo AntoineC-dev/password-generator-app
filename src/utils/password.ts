@@ -1,4 +1,4 @@
-import type { PasswordOptions, passwordStrenght } from '../types';
+import type { PasswordOptions, PasswordStrenght } from '../types';
 
 /**
  *
@@ -27,15 +27,6 @@ const STRICT_RULES: StrictRule[] = [
   { name: 'numbers', regexp: /[0-9]/ },
   { name: 'symbols', regexp: /[!@#$%^&*()+_\-=}{[\]|:;"/?.><,`~]/ },
 ];
-
-const generatePool = (props: PasswordOptions['rules']) => {
-  let pool = '';
-  if (props.lowercase) pool += LOWERCASE_CHARS;
-  if (props.uppercase) pool += UPPERCASE_CHARS;
-  if (props.numbers) pool += NUMBERS;
-  if (props.symbols) pool += SYMBOLS;
-  return pool;
-};
 
 const generateRandomIndexes = (length: PasswordOptions['length'], pool: string) => {
   let indexes: number[] = [];
@@ -68,29 +59,54 @@ const generateStrictPassword = (options: PasswordOptions, pool: string): string 
   return password;
 };
 
-const getMinStrictLenght = (rules: PasswordOptions['rules']) => {
-  return Object.values(rules).filter((rule) => rule).length;
-};
-
 export const generatePassword = (options: PasswordOptions) => {
-  // Validate lenght
-  if (options.length === 0) throw new Error("Password length can't be zero");
-
-  // Validate min strict rules
-  const minStrictLenght = getMinStrictLenght(options.rules);
-  if (minStrictLenght === 0) throw new Error('You must select at least one rule');
-  if (minStrictLenght > options.length)
-    throw new Error('Password length must at least be equal to the number of checked rules');
-
-  // Generate pool
-  const pool = generatePool(options.rules);
+  let pool = '';
+  if (options.rules.lowercase) pool += LOWERCASE_CHARS;
+  if (options.rules.uppercase) pool += UPPERCASE_CHARS;
+  if (options.rules.numbers) pool += NUMBERS;
+  if (options.rules.symbols) pool += SYMBOLS;
 
   // Generate password
   const password = generateStrictPassword(options, pool);
   return password;
 };
 
-export const displayPasswordStrength = (current: passwordStrenght) => {
+/**
+ * PASSWORD STRENGHT
+ *
+ * Too Weak! => length < 6 || rules count < 2
+ * Weak => length < 8 || rules count < 3
+ * Medium => length < 12 || rules count < 4
+ * STRONG => lenght > 12 && rules count === 4
+ */
+
+const getMinStrictLenght = (rules: PasswordOptions['rules']) => {
+  return Object.values(rules).filter((rule) => rule).length;
+};
+
+const getPasswordErrorMsg = (length: PasswordOptions['length'], minStrictLenght: number) => {
+  if (length === 0) return "Password length can't be zero";
+  if (minStrictLenght === 0) return 'You must select at least one rule';
+  if (minStrictLenght > length) return 'Password length must correlate with number of rules';
+  return undefined;
+};
+
+const checkPasswordStrength = (length: PasswordOptions['length'], minStrictLenght: number) => {
+  if (!length || !minStrictLenght) return 0;
+  if (length < 6 || minStrictLenght < 2) return 1;
+  if (length < 8 || minStrictLenght < 3) return 2;
+  if (length < 12 || minStrictLenght < 4) return 3;
+  return 4;
+};
+
+export const checkOptionsValidity = (options: PasswordOptions) => {
+  const minStrictLength = getMinStrictLenght(options.rules);
+  const strength = checkPasswordStrength(options.length, minStrictLength) as PasswordStrenght;
+  const errorMsg = getPasswordErrorMsg(options.length, minStrictLength);
+  return { strength, errorMsg };
+};
+
+export const displayPasswordStrength = (current: PasswordStrenght) => {
   switch (current) {
     case 1:
       return 'too weak!';
