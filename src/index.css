@@ -206,3 +206,7 @@ a:not([class]) {
   color: hsl(var(--clr-light));
   padding: var(--space-xl) var(--space-base);
 }
+
+*:focus-visible {
+  outline: 4px dotted hsl(var(--clr-light));
+}
